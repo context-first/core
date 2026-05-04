@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context-first — context-first.ai</title>
+  <meta name="description" content="The planning methodology for AI-native engineering teams. Frame it. Build it. Ship it. Repeat.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #0b5394;
+      --blue-light: #e8f0f9;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    nav .wordmark {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+    }
+    nav .wordmark .tld {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    nav .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-left: 1.5rem;
+    }
+    nav .links a:hover { color: var(--blue); }
+
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero .eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: var(--blue); }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+    }
+    .domain-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--blue);
+      background: var(--blue-light);
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-secondary { background: var(--blue-light); color: var(--blue); }
+
+    .stats {
+      background: var(--blue);
+      color: #fff;
+      padding: 2.5rem 2rem;
+    }
+    .stats-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label { font-size: 0.9rem; opacity: 0.85; }
+
+    section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    section + section { border-top: 1px solid var(--border); }
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    th {
+      background: var(--blue);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) td { background: var(--blue-light); }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .principle {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .principle h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .principle p { font-size: 0.92rem; margin: 0; }
+
+    .experiment {
+      background: var(--blue-light);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.8rem;
+      margin: 1.5rem 0;
+    }
+    .experiment h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .experiment p { font-size: 0.92rem; margin: 0; }
+
+    blockquote {
+      border-left: 4px solid var(--blue);
+      padding: 0.8rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .related {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .related-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+    }
+    .related-item h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.3rem;
+    }
+    .related-item p {
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer .domains { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="wordmark">context-first<span class="tld">.ai</span></span>
+    <div class="links">
+      <a href="https://github.com/context-first/core">GitHub</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#contribute">Contribute</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="eyebrow">The planning methodology for AI-native engineering teams</div>
+    <h1><span>Context-first.</span><br>Frame it. Build it. Ship it. Repeat.</h1>
+    <p>
+      The bottleneck was never capacity. It was always context.
+      Agile was designed for a world where shipping software took weeks per
+      feature. AI-native engineering changes that to hours. Your planning
+      primitive should too.
+    </p>
+    <div class="domain-badge">context-first.ai</div>
+    <div class="cta-group">
+      <a href="https://github.com/context-first/core" class="btn btn-primary">Read the methodology</a>
+      <a href="#experiments" class="btn btn-secondary">See the evidence</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-number">130×</div>
+        <div class="stat-label">less effort, same engineering bar</div>
+      </div>
+      <div>
+        <div class="stat-number">4 days</div>
+        <div class="stat-label">to ship a 26-week equivalent MVP</div>
+      </div>
+      <div>
+        <div class="stat-number">10–12</div>
+        <div class="stat-label">sessions per greenfield project</div>
+      </div>
+      <div>
+        <div class="stat-number">60–120</div>
+        <div class="stat-label">minutes per session</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="problem">
+    <h2>The bottleneck was never capacity. It was always context.</h2>
+    <p>
+      Story points, sprint planning, and velocity metrics were designed for a
+      world where shipping software took weeks per feature. That world is ending.
+      AI-native engineering changes delivery time from weeks to hours. But most
+      teams are still planning in points and running weekly ceremonies built
+      for a cadence that no longer exists.
+    </p>
+    <p>
+      The overhead has not scaled down with the delivery time. It has stayed
+      the same, or grown. That is the problem context-first is trying
+      to solve. <em>Sessions-not-stories</em> is the engineering-specific
+      instantiation of the principle — the unit of attention you actually plan,
+      build, and ship inside.
+    </p>
+    <blockquote>
+      AI-native engineering amplifies engineering judgment. Sessions give that
+      judgment a repeatable structure. Together they produce a compounding
+      effect that neither delivers alone.
+    </blockquote>
+  </section>
+
+  <section id="methodology">
+    <h2>The session primitive</h2>
+    <p>
+      A session is what one engineer and an AI coding assistant can design,
+      build, test, and ship before context drift sets in. Typically 60–120
+      minutes. Always ends with a coherent artifact.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Old primitive: story</th>
+            <th>New primitive: session</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Sized in points</td><td>Sized in focus minutes</td></tr>
+          <tr><td>Bounded by sprint calendar</td><td>Bounded by cognitive context</td></tr>
+          <tr><td>Accepted via demo</td><td>Accepted via tests + tag + repo memory</td></tr>
+          <tr><td>Not replayable</td><td>Replayable — chat, git, memory</td></tr>
+          <tr><td>Backlog grows</td><td>Compounds — each session paves the next</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="principles">
+      <div class="principle">
+        <h3>Bounded by cognition, not calendar</h3>
+        <p>A 90-minute session with a sharp goal beats two days of fragmented work. The constraint is attention, not capacity.</p>
+      </div>
+      <div class="principle">
+        <h3>Always produces an artifact</h3>
+        <p>Green tests, FF-merge, tag, repo memory updated. Sessions that don't close cleanly are a smell.</p>
+      </div>
+      <div class="principle">
+        <h3>Replayable by design</h3>
+        <p>The chat transcript, repo memory, and git history are the audit trail. Stories were never replayable; sessions are.</p>
+      </div>
+      <div class="principle">
+        <h3>Compounds over time</h3>
+        <p>What repo memory captured this session makes the next session faster. Stories don't compound; backlogs just get longer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiments">
+    <h2>The first experiment</h2>
+    <p>
+      The session model was not designed upfront. It emerged from a real
+      project — accidentally — and produced results that were hard to ignore.
+      This repo exists to make it intentional, and to replicate it across
+      more engineers, domains, and experience levels.
+    </p>
+
+    <div class="experiment">
+      <h3>cLLM — Experiment 001</h3>
+      <p>
+        A synthetic GPU / vLLM simulator built in 4 days by one Partner FDE
+        using GitHub Copilot and an AI-native engineering workflow. 125 commits
+        in 12 days. ~19.5K lines of Go. ~40% test ratio. Race-clean. 3-layer
+        observability shipped day one. GitOps-deployed on K3s / Flux. Comparable
+        engineering bar to a 26-week, 4-person project from 2020.
+      </p>
+    </div>
+
+    <p>
+      The session model emerged from that project without being planned.
+      The next experiments will be intentional — logged, measured, and
+      contributed back here.
+    </p>
+  </section>
+
+  <section id="contribute">
+    <h2>Run your own experiment</h2>
+    <p>
+      The methodology gets better when more engineers stress-test it across
+      different domains, experience levels, and team contexts. One
+      well-documented experiment is worth more than five opinions.
+    </p>
+    <p>
+      To contribute: run at least 5 intentional sessions using the session
+      log template, write a summary of what you built and what you learned,
+      and open a PR to the <code>experiments/</code> folder.
+    </p>
+    <p>
+      A session log that shows where the model broke down is as valuable as
+      one that shows it working — maybe more.
+    </p>
+    <div class="cta-group" style="margin-top:1.5rem; justify-content:flex-start;">
+      <a href="https://github.com/context-first/core/blob/main/contributing.md" class="btn btn-primary">How to contribute</a>
+      <a href="https://github.com/context-first/core/blob/main/experiments/session-log-template.md" class="btn btn-secondary">Session log template</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Who this is for</h2>
+    <div class="principles">
+      <div class="principle">
+        <h3>Engineers</h3>
+        <p>Adopting AI-native workflows who want a repeatable session structure and a compounding close ritual.</p>
+      </div>
+      <div class="principle">
+        <h3>PMs</h3>
+        <p>Looking for a lighter-weight planning primitive where framing a session replaces decomposing a story.</p>
+      </div>
+      <div class="principle">
+        <h3>Engineering managers</h3>
+        <p>Whose teams are outgrowing Scrum overhead and want ceremony that fits the actual delivery cadence.</p>
+      </div>
+      <div class="principle">
+        <h3>Anyone</h3>
+        <p>Who has felt ceremony cost exceed ceremony value — and wants a concrete alternative, not just a critique.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="related">
+    <h2>Related work</h2>
+    <p>
+      Context-first did not emerge from a vacuum. Closest prior art —
+      and where this departs from each.
+    </p>
+    <div class="related">
+      <div class="related-item">
+        <h3>Shape Up</h3>
+        <p>Closest framework — bets, appetites, circuit breakers. Operates at the project level. Context-first picks up at the engineer level.</p>
+      </div>
+      <div class="related-item">
+        <h3>#NoEstimates</h3>
+        <p>Critiques points-based estimation but never names the replacement primitive. The session is the answer.</p>
+      </div>
+      <div class="related-item">
+        <h3>Deep Work</h3>
+        <p>The cognitive science foundation. Context-first is Deep Work + a release discipline + a compounding mechanism.</p>
+      </div>
+      <div class="related-item">
+        <h3>Team Topologies</h3>
+        <p>Operates at org structure altitude. Complementary, not competing.</p>
+      </div>
+      <div class="related-item">
+        <h3>Pomodoro</h3>
+        <p>Time-boxed work units, but no artifact discipline, no compounding, no planning implications.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="domains">context-first.ai · context-first.org</div>
+    <p>
+      Open source and early.
+      <a href="https://github.com/context-first/core">GitHub</a> ·
+      <a href="https://github.com/context-first/core/blob/main/contributing.md">Contribute</a> ·
+      Started May 2026
+    </p>
+  </footer>
+
+</body>
+</html>
