@@ -195,6 +195,13 @@
       margin-bottom: 0.5rem;
     }
     .experiment p { font-size: 0.92rem; margin: 0; }
+    .experiment h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .experiment h3 a:hover {
+      text-decoration: underline;
+    }
 
     blockquote {
       border-left: 4px solid var(--blue);
@@ -220,6 +227,13 @@
       font-weight: 700;
       color: var(--blue);
       margin-bottom: 0.3rem;
+    }
+    .related-item h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .related-item h3 a:hover {
+      text-decoration: underline;
     }
     .related-item p {
       font-size: 0.85rem;
@@ -251,7 +265,7 @@
 
   <div class="hero">
     <div class="eyebrow">The planning methodology for AI-native engineering teams</div>
-    <h1><span>Context-first.</span><br>Frame it. Build it. Ship it. Repeat.</h1>
+    <h1><span>Context-first.</span><br>Frame it.<br>Build it.<br>Ship it.<br>Repeat.</h1>
     <p>
       The bottleneck was never capacity. It was always context.
       Agile was designed for a world where shipping software took weeks per
@@ -260,7 +274,7 @@
     </p>
     <div class="domain-badge">context-first.ai</div>
     <div class="cta-group">
-      <a href="https://github.com/context-first/core" class="btn btn-primary">Read the methodology</a>
+      <a href="#methodology" class="btn btn-primary">Read the methodology</a>
       <a href="#experiments" class="btn btn-secondary">See the evidence</a>
     </div>
   </div>
@@ -353,6 +367,27 @@
         <p>What repo memory captured this session makes the next session faster. Stories don't compound; backlogs just get longer.</p>
       </div>
     </div>
+
+    <div class="experiment">
+      <h3><a href="https://github.com/context-first/core/blob/main/methodology/sessions-not-stories.md">Sessions, Not Stories</a></h3>
+      <p>
+        Planning shifts from point-sized stories to focus-sized sessions:
+        bounded by cognitive context, accepted through tests, commits, tags,
+        and repo memory, and designed to compound across runs. The PM and
+        engineering job becomes framing the next coherent session, not
+        negotiating abstract backlog units.
+      </p>
+    </div>
+
+    <div class="experiment">
+      <h3><a href="https://github.com/context-first/core/blob/main/methodology/ceremonies-as-sessions.md">Ceremonies as Sessions</a></h3>
+      <p>
+        Agile ceremonies compress when session hygiene makes intent, progress,
+        and decisions visible before the meeting starts. Code review, retros,
+        planning, demos, and office hours become scoped sessions with clear
+        exit artifacts instead of recurring status rituals.
+      </p>
+    </div>
   </section>
 
   <section id="experiments">
@@ -434,35 +469,35 @@
     </p>
     <div class="related">
       <div class="related-item">
-        <h3>Shape Up</h3>
+        <h3><a href="https://basecamp.com/shapeup">Shape Up</a></h3>
         <p>Closest framework — bets, appetites, circuit breakers. Operates at the project level. Context-first picks up at the engineer level.</p>
       </div>
       <div class="related-item">
-        <h3>#NoEstimates</h3>
+        <h3><a href="https://zuill.us/WoodyZuill/category/no-estimating/">#NoEstimates</a></h3>
         <p>Critiques points-based estimation but never names the replacement primitive. The session is the answer.</p>
       </div>
       <div class="related-item">
-        <h3>Deep Work</h3>
+        <h3><a href="https://books.google.com/books/about/Deep_Work.html?id=B_L8CAAAQBAJ">Deep Work</a></h3>
         <p>The cognitive science foundation. Context-first is Deep Work + a release discipline + a compounding mechanism.</p>
       </div>
       <div class="related-item">
-        <h3>Team Topologies</h3>
+        <h3><a href="https://teamtopologies.com/">Team Topologies</a></h3>
         <p>Operates at org structure altitude. Complementary, not competing.</p>
       </div>
       <div class="related-item">
-        <h3>Pomodoro</h3>
+        <h3><a href="https://www.pomodorotechnique.com/">Pomodoro</a></h3>
         <p>Time-boxed work units, but no artifact discipline, no compounding, no planning implications.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="domains">context-first.ai · context-first.org</div>
+    <div class="domains">context-first.ai ·</div>
     <p>
       Open source and early.
       <a href="https://github.com/context-first/core">GitHub</a> ·
       <a href="https://github.com/context-first/core/blob/main/contributing.md">Contribute</a> ·
-      Started May 2026
+      Started April 2026
     </p>
   </footer>
 
