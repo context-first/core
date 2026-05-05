@@ -42,7 +42,8 @@ That is not a smaller story. It is a different primitive — one that matches ho
 methodology/
   sessions-not-stories.md      — the session primitive (engineering chapter)
   ceremonies-as-sessions.md    — remapping standups, retros, planning, demos
-  ai-native-for-business.md    — the PM and stakeholder angle
+  drafts/
+    ai-native-for-business.md  — the PM and stakeholder angle (draft)
 
 experiments/
   session-log-template.md      — run your own experiment
