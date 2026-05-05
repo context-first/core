@@ -87,6 +87,16 @@ If you are running AI-native engineering and want to contribute an experiment, s
 
 Context-first did not emerge from a vacuum. These are the bodies of work that overlap, inform, or inspired it — and where it parts ways with each.
 
+### HVE Core — Microsoft
+
+The closest *complementary* work — not the closest competitor. HVE Core ([microsoft/hve-core](https://github.com/microsoft/hve-core)) is a GitHub Copilot tooling library: specialized agents, auto-applied coding instructions, reusable prompts, and validated skills, distributed as VS Code extensions. Its signature pattern is **RPI** — Research → Plan → Implement → Review, with `/clear` between phases so each agent runs on a clean context.
+
+HVE Core operates at the **IDE / Copilot layer** — it answers *"how do I get high-quality output from Copilot on one task?"* Context-first operates at the **planning / methodology layer** — it answers *"what is the unit of work, and how do the ceremonies wrap it?"*
+
+The two fit together cleanly: an RPI cycle typically runs *inside* a single context-first session. HVE makes the inner loop at the keyboard fast; context-first is the outer-loop discipline (sessions, arcs, ceremonies-as-sessions, repo memory) that lets the speed actually reach delivery.
+
+The consistent feedback from teams adopting HVE: the tools are fast, the agile process gets in the way. **Context-first is the process catching up to the tools.** Use both.
+
 ### Shape Up — Basecamp / 37signals
 
 The closest existing framework. Shape Up replaces backlogs with "bets," estimates with "appetites," and sprints with six-week cycles that end with a hard stop — no carryover, no extensions.
