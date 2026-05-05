@@ -1,0 +1,4 @@
+# Local clones of experiment and reference repos.
+# Each subdirectory is an independent git repo, kept here for context-first
+# multi-repo workflows. See experiments/<name>/summary.md for the public link.
+repos/
