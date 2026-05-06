@@ -94,7 +94,7 @@ The closest *complementary* work — not the closest competitor. HVE Core ([micr
 
 HVE Core operates at the **IDE / Copilot layer** — it answers *"how do I get high-quality output from Copilot on one task?"* Context-first operates at the **planning / methodology layer** — it answers *"what is the unit of work, and how do the ceremonies wrap it?"*
 
-The two fit together cleanly: an RPI cycle typically runs *inside* a single context-first session. HVE makes the inner loop at the keyboard fast; context-first is the outer-loop discipline (sessions, arcs, ceremonies-as-sessions, repo memory) that lets the speed actually reach delivery.
+The two fit together cleanly: an RPI cycle typically runs *inside* a single context-first session. HVE makes the inner loop at the keyboard fast; context-first is the outer-loop discipline (sessions, arcs, ceremonies-as-sessions, repo memory) that lets the speed actually reach delivery. For the practical "how do these compose?" guide, see [Sessions and RPI](methodology/sessions-and-rpi.md) — including a worked example you can follow without the HVE Core extension installed.
 
 The consistent feedback from teams adopting HVE: the tools are fast, the agile process gets in the way. **Context-first is the process catching up to the tools.** Use both.
 

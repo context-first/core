@@ -75,7 +75,7 @@ Two minutes, three questions:
 If you cannot answer all three, the session is not ready to start.
 
 **After planning, before implementing — the fit check.**
-The frame is set before you know what's actually involved. Once you've researched and planned (whether using HVE Core RPI or any other plan-first inner loop), you have evidence the frame didn't. Spend two more minutes:
+The frame is set before you know what's actually involved. Once you've researched and planned (whether using HVE Core RPI or any other plan-first inner loop — see [Sessions and RPI](sessions-and-rpi.md) for the practical pairing), you have evidence the frame didn't. Spend two more minutes:
 
 - Will this plan fit in 90–120 minutes of focused work? Honest gut, not optimistic.
 - If no, what is the smallest cut that keeps the session release-able? Name the items.
