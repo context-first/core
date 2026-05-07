@@ -74,6 +74,15 @@ Two minutes, three questions:
 
 If you cannot answer all three, the session is not ready to start.
 
+**After planning, before implementing — the fit check.**
+The frame is set before you know what's actually involved. Once you've researched and planned (whether using HVE Core RPI or any other plan-first inner loop — see [Sessions and RPI](sessions-and-rpi.md) for the practical pairing), you have evidence the frame didn't. Spend two more minutes:
+
+- Will this plan fit in 90–120 minutes of focused work? Honest gut, not optimistic.
+- If no, what is the smallest cut that keeps the session release-able? Name the items.
+- Proceed, cut, or re-frame? Record the decision in the session log.
+
+This is the cheapest moment to cut scope — a deleted bullet costs nothing; abandoned implementation work costs the rest of the session. It is also the only moment you have the data: the frame was a guess, the plan is evidence. Over time, if the fit check always cuts the same item, that item stops appearing in frames — the check is a calibration loop on framing quality itself.
+
 **During the session — one rule.**
 When you feel the urge to pull a thread that's outside your frame, don't. Write it down in a "next sessions" list and stay in scope. Context drift is the enemy — and it's seductive because the tangent usually feels important in the moment.
 
