@@ -47,23 +47,42 @@ methodology/
 
 experiments/
   session-log-template.md      — run your own experiment
-  cllm/                        — the first experiment (bartr/vllm)
-    summary.md                 — what was built, how sessions mapped
-    session-log.md             — 10-session intentional practice log
+  cllm/                        — Experiment 001 — accidental, with reuse
+  fit-check/                   — Experiment 002 — methodology-shaping
+  movies-bartr/                — Experiment 003 — intentional, no reuse
 ```
 
-## The First Experiment
+## The Experiments
 
-**cLLM** — a synthetic GPU / vLLM simulator built in 4 days by one engineer using GitHub Copilot and an AI-native engineering workflow.
+Three runs so far, each at a stricter condition than the last.
 
-- 125 commits in 12 days · 99 in the first 5
-- ~19.5K lines of Go · ~40% test ratio · race-clean
-- 3-layer observability shipped day one
-- GitOps-deployed on K3s / Flux
+| | Helium MVP (2020) | [cLLM](experiments/cllm/summary.md) (2026) | [movies-bartr](experiments/movies-bartr/summary.md) (2026) |
+|---|---|---|---|
+| Time to MVP | 26 weeks | 4 days | **~5 focus hours** |
+| Team | 4 (3 FDE + 1 PM) | 1 Partner FDE | 1 Partner FDE |
+| Reuse base | n/a (the new project) | ~1 yr K8s/GitOps from prior project | **none — greenfield** |
+| Methodology | none | sessions (accidental) | sessions (intentional) |
+| Effort | ~4,160 person-hours | ~0.8 person-weeks | **~5 person-hours** |
+| Headline ratio | — | ~130× | **~830×** |
 
-The session model emerged from that project accidentally. This repo exists to make it intentional — and to replicate it across more engineers, domains, and experience levels.
+**cLLM** — synthetic GPU / vLLM simulator. 125 commits in 12 days, ~19.5K lines of Go (~40% test ratio, race-clean), 3-layer observability day one, GitOps on K3s/Flux. Public: [github.com/bartr/vllm](https://github.com/bartr/vllm). The session model emerged here by accident.
 
-Full project: [github.com/bartr/vllm](https://github.com/bartr/vllm)
+**movies-bartr** — direct replication of the Helium MVP scope (same API, same Swagger, same 100-movie IMDb dataset, read-only, no auth). Stack substitutions only: Go instead of C#, k3s instead of App Services, Prometheus/Grafana instead of Azure Monitor, local JSON instead of Cosmos DB. 10 sessions, 9 tags, p95 50–500× under spec, all acceptance criteria green on a freshly-wiped cluster. Honest [retro](experiments/movies-bartr/RETRO.md) included.
+
+This run is also **participant 1 of a reusable experiment harness** at [github.com/bartr/movies](https://github.com/bartr/movies). The spec is stack-agnostic (Go/Rust/Python/TS/.NET runs are all expected to land at the bar), the ground rules are codified in `EXPERIMENT.md`, and the submissions tracker is open. The methodology becomes falsifiable across operators when N > 1.
+
+### On the Ratios
+
+The interesting finding is not the size of either number. It is the **direction of change** when a confound was removed.
+
+cLLM had two confounds: a senior operator and ~1 year of reusable scaffolding. movies-bartr was designed to strip the second — greenfield repo, no carryover, spec written before code. If the multiplier had been mostly scaffolding-reuse, the result should have collapsed. It did not. It expanded.
+
+That is the signal worth attending to. The 130× and the 830× are the same claim under different conditions; the second condition is stricter, and the result held. The remaining confound — operator seniority — is what the next experiment (a different FDE running the same spec) is built to test.
+
+Two honest framings of the numbers:
+
+- **Conservative:** cLLM's defensible floor is **HVE-only ~65×** (see `repos/cllm/docs/helium.md` "The Counterfactual"). movies-bartr's ~830× is sum-of-focus-hours, not wall-clock; the wall-clock figure was ~12 hours, which is still ~350×.
+- **Falsifiable:** the prediction now is that a different operator on the same movies spec will land in the same order of magnitude. If they don't, the methodology claim weakens. That is the experiment in flight.
 
 ## The Bigger Claim
 
@@ -73,7 +92,11 @@ The cLLM experiment was accidental. The next ones will not be.
 
 ## Status
 
-Early. One experiment. One engineer. The methodology is sound but needs more data points — different engineers, different domains, different experience levels. That is what the `experiments/` folder is for.
+Early but accelerating. Three experiments. One operator on two of them; a different operator on the third (in flight). The methodology is sound and survived its first stricter condition. It needs more data points — different engineers, different domains, different experience levels. That is what the `experiments/` folder is for.
+
+## License & Ownership
+
+This repo, the methodology, and the experiments are bartr's personal work, **MIT licensed**. Not Microsoft IP. The RPI inner-loop pattern referenced in the methodology is from Microsoft's [HVE Core](https://github.com/microsoft/hve-core) (also MIT) — credit Microsoft when referencing RPI.
 
 If you are running AI-native engineering and want to contribute an experiment, see [contributing.md](contributing.md).
 

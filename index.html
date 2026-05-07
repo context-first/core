@@ -301,15 +301,15 @@
     <div class="stats-inner">
       <div>
         <div class="stat-number">130×</div>
-        <div class="stat-label">less effort, same engineering bar</div>
+        <div class="stat-label">cLLM vs Helium — accidental, with reuse</div>
       </div>
       <div>
-        <div class="stat-number">4 days</div>
-        <div class="stat-label">to ship a 26-week equivalent MVP</div>
+        <div class="stat-number">~830×</div>
+        <div class="stat-label">movies-bartr vs Helium — intentional, no reuse</div>
       </div>
       <div>
-        <div class="stat-number">60–120</div>
-        <div class="stat-label">minutes per session</div>
+        <div class="stat-number">~5 hrs</div>
+        <div class="stat-label">to ship a Helium-MVP equivalent</div>
       </div>
     </div>
   </div>
@@ -407,30 +407,47 @@
   </section>
 
   <section id="experiments">
-    <h2>The first experiment</h2>
+    <h2>The experiments</h2>
     <p>
       The session model was not designed upfront. It emerged from a real
       project — accidentally — and produced results that were hard to ignore.
-      This repo exists to make it intentional, and to replicate it across
-      more engineers, domains, and experience levels.
+      The next runs were intentional, each at a stricter condition than the
+      last. The interesting finding is not the size of any single ratio; it
+      is that stripping confounds did not collapse the multiplier.
     </p>
 
     <div class="experiment">
-      <h3>cLLM — Experiment 001</h3>
+      <h3>cLLM — Experiment 001 — ~130×, accidental, with reuse</h3>
       <p>
         A synthetic GPU / vLLM simulator built in 4 days by one Partner FDE
         using GitHub Copilot and an AI-native engineering workflow. 125 commits
         in 12 days. ~19.5K lines of Go. ~40% test ratio. Race-clean. 3-layer
         observability shipped day one. GitOps-deployed on K3s / Flux. Comparable
-        engineering bar to a 26-week, 4-person project from 2020.
+        engineering bar to a 26-week, 4-person project from 2020. The session
+        model was discovered here, not designed.
       </p>
       <a class="learn-more" href="https://github.com/context-first/core/blob/main/experiments/cllm/summary.md">Learn More</a>
     </div>
 
+    <div class="experiment">
+      <h3>movies-bartr — Experiment 003 — ~830×, intentional, no reuse</h3>
+      <p>
+        A direct replication of the Helium MVP scope — same API, same Swagger,
+        same 100-movie IMDb dataset, read-only, no auth. Stack substitutions
+        only: Go instead of C#, k3s instead of App Services, Prometheus +
+        Grafana instead of Azure Monitor, local JSON instead of Cosmos DB.
+        Greenfield repo, no scaffolding reuse, methodology applied from
+        session 1. 10 sessions, 9 tags shipped, ~5 focus hours of work.
+        p95 50–500× under spec on a 500m-CPU pod. Honest retro included.
+      </p>
+      <a class="learn-more" href="https://github.com/context-first/core/blob/main/experiments/movies-bartr/summary.md">Learn More</a>
+    </div>
+
     <p>
-      The session model emerged from that project without being planned.
-      The next experiments will be intentional — logged, measured, and
-      contributed back here.
+      The remaining confound is operator seniority. The next experiment — a
+      different FDE running the same movies spec — is in flight. If it lands
+      in the same order of magnitude, the multiplier is methodology-shaped.
+      If it does not, the claim weakens. That is what makes it an experiment.
     </p>
   </section>
 
