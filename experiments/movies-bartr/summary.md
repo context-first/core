@@ -1,12 +1,25 @@
 # Experiment 003: movies-bartr
 
 > A direct, intentional replication of the Helium MVP. Same scope. Single operator. Methodology-driven.
+>
+> **This is also the first run through a reusable experiment harness** — future participants will run the same spec independently, and their runs will be comparable evidence by design.
 
-## Project
+## Two Repos, One Experiment
+
+This experiment is structured as **harness + participant runs**, not a single project:
+
+| Repo | Role | Public URL |
+|---|---|---|
+| **harness / template** | The spec, methodology guide, experiment framing, session-log template, and 100-movie dataset. Other FDEs `Use this template` to start their own run. | [github.com/bartr/movies](https://github.com/bartr/movies) |
+| **movies-bartr (this run)** | Participant 1's run through the harness. Implementation, RETRO, PERFORMANCE, filled-in session log, 21 RPI artifacts. | [github.com/bartr/movies-bartr](https://github.com/bartr/movies-bartr) |
+
+This is the structural difference from cLLM. cLLM was one project that produced a methodology by accident. movies is a **falsifiability mechanism** — a harness designed so that participant N can produce comparable evidence to participant 1, and the methodology claim either holds across operators or it doesn't. movies-bartr is the first run; the next FDE clones the template and contributes their run as a sibling.
+
+## Project (Run Scope)
 
 **movies-bartr** — a Kubernetes-native read-only HTTP API serving a 100-movie/actors catalog (the same IMDb-derived test data used for Helium load tests in 2020), with Swagger, structured logs, Prometheus metrics, a Grafana dashboard, and a load-generation client (`webv`). GitOps-deployable on local k3s.
 
-Local clone (gitignored): `repos/movies/`
+Local clones: `~/movies` (template) · `~/bartr-movies` (this run). Mirrored into core as this folder.
 Implementation notes: [IMPL-README.md](IMPL-README.md) · Performance: [PERFORMANCE.md](PERFORMANCE.md) · Retro: [RETRO.md](RETRO.md)
 
 ## Engineer Profile
@@ -17,12 +30,19 @@ Implementation notes: [IMPL-README.md](IMPL-README.md) · Performance: [PERFORMA
 
 ## Why This Experiment
 
-cLLM produced **~130×** vs Helium, but with two confounds the seniority-aware caveats in [cllm/summary.md](../cllm/summary.md) explicitly flag:
+cLLM produced **~130×** vs Helium, but with three confounds the seniority-aware caveats in [cllm/summary.md](../cllm/summary.md) explicitly flag:
 
 1. Senior operator
 2. ~1 year of K8s/GitOps scaffolding reused from a prior project
+3. Stack pre-chosen by the operator (Go, K3s, Prometheus — a stack the operator was already deep in)
 
-movies-bartr was designed to **strip the second confound** (the first persists — a different operator is the next experiment, [repos/cllm/README.md](../../repos/cllm/README.md), already handed off). Greenfield repo. Spec was written before any code. Stack chosen at session 1.
+The harness was designed to **strip confounds 2 and 3 by construction:**
+
+- The template is greenfield. No reusable code; participants get spec + data + methodology, nothing else.
+- The spec is **stack-agnostic** — [docs/EXPERIMENT.md](https://github.com/bartr/movies/blob/main/docs/EXPERIMENT.md) is explicit that Go, Rust, Python, TypeScript, and .NET runs are all expected to land at the bar. Picking the stack is part of session 1.
+- Ground rules are codified: solo only, no copy-paste from other projects, tag every session, honest retros, fit check is mandatory.
+
+Confound 1 (operator seniority) is what *cross-participant* runs are designed to test. movies-bartr is participant 1; participant 2+ are the falsification surface.
 
 ## Scope vs Helium MVP
 
@@ -43,9 +63,13 @@ The scope is **functionally equivalent** to the Helium 2020 MVP, with stack subs
 
 Differences are **stack substitutions, not scope reductions.** The acceptance bar (service · structured logs · Prometheus · Grafana · load-test client · all §14 boxes green on a freshly-wiped cluster) is the Helium-MVP bar.
 
-## Outcome
+## Outcome (Participant 1)
 
 Helium-MVP-equivalent artifact shipped in **~5 focus hours of work** by **one engineer** with no scaffolding reuse.
+
+From the participant's [RETRO.md](RETRO.md):
+
+> Sessions + RPI got me to 1.0.0 in ~12 hours wall-clock / ~5 hours focus, hitting spec p95 targets by 50–500× and the 500 RPS goal by ~17%. The fit check + frame-before-implement caught three premature implementations; thread reuse on context-heavy late sessions was the main methodology friction.
 
 | Axis | Helium MVP (2020) | movies-bartr (2026) |
 |---|---|---|
@@ -73,6 +97,27 @@ Real numbers from the repo, May 6 → May 7, 2026:
 - **Sustained 585 RPS, 0% 5xx, 0% 4xx** (target ≥ 500 RPS, < 1% errors)
 - Honest [RETRO.md](RETRO.md) — including where the methodology got in the way
 
+## Methodology Fingerprints in the Artifact
+
+Things that are visible in the run repo because the methodology was followed, not because they were optional polish:
+
+- **21 RPI artifacts in `.copilot-tracking/`** — five sessions × research/plan/changes/review files. The audit trail for *Research happened before Plan, Plan before Implement* is on disk, not asserted.
+- **9 git tags as session boundaries** — the close ritual produced visible waypoints, not a single squashed commit. The session-10 reconciliation (where a post-hoc duration estimate was off by 4×) was only resolvable *because* the tag/commit timestamps existed.
+- **The PERFORMANCE.md headroom argument** — the point isn't "Go is fast." The point is that 50–500× headroom means the operator can spend the budget elsewhere (richer middleware, slower disk, noisy neighbor) and the SLO still holds. That framing only happens when there's a session to write it down in.
+- **Two specific instrumentation discoveries** worth keeping:
+  - **Default Prometheus histogram buckets lie about sub-ms services.** `prometheus.DefBuckets` starts at 5 ms; every request landed in the smallest bucket and `histogram_quantile` interpolated ~4.75 ms across all routes. The dashboard was uniform-but-wrong for 8 sessions until session 9 caught it. Fix: custom sub-ms ladder starting at 100 µs.
+  - **Go `time.Sleep` is quantized by the kernel timer to ~1 ms.** Single-thread RPS jumped in coarse steps (800 / 428 / 293) with no value near 500. Fix: two threads at `sleep=3ms` for ~584 RPS sustained.
+
+## The Methodology Evolved From This Run
+
+The template's most recent commit (`e882424 updated based on retro`) folded lessons from this run *back into the harness* before participant 2 starts:
+
+- The fit check beat (originally added during the [fit-check experiment](../fit-check/summary.md)) is now load-bearing in the participant onboarding.
+- The "log Start at frame, End at close ritual" rule — from [RETRO.md](RETRO.md) — is being adopted in the template's session-log to prevent post-hoc duration decay.
+- The submissions tracking issue ([context-first/core#6](https://github.com/context-first/core/issues/6)) is the cross-participant evidence registry.
+
+Provenance pattern: **rules earn their keep by surviving real sessions, not by being designed.** Same pattern as the fit-check addition. This is the methodology compounding.
+
 ## What This Replication Proves
 
 1. **The scaffolding-reuse confound was not the multiplier.** With reuse stripped, the per-effort multiplier did not regress — it expanded. The methodology is doing more of the work than the reuse was.
@@ -89,10 +134,16 @@ Real numbers from the repo, May 6 → May 7, 2026:
 
 ## How This Connects to the Other Experiments
 
-- [cllm](../cllm/summary.md) — accidental, ~130×, with reuse base. *Discovered the methodology.*
+- [cllm](../cllm/summary.md) — accidental, ~130×, with reuse base, stack pre-chosen. *Discovered the methodology.*
 - [fit-check](../fit-check/summary.md) — methodology-shaping, no implementation. *Sharpened the methodology.*
-- **movies-bartr** — intentional, ~830×, no reuse, single operator. *Stress-tested the methodology under stricter conditions.*
-- `repos/cllm` (handoff) — different operator, in flight. *Tests the seniority confound.*
+- **movies-bartr** — intentional, ~830×, no reuse, stack-agnostic spec, single operator. *Stress-tested the methodology under stricter conditions, and produced a reusable harness as a side effect.*
+- **Participant 2+** ([github.com/bartr/movies](https://github.com/bartr/movies) submissions) — different operators, in flight. *Tests the seniority confound. The methodology becomes falsifiable when N > 1.*
+
+## IP / Licensing
+
+- This experiment, the harness, and the implementation are bartr's personal work, **MIT licensed**. Not Microsoft IP.
+- The RPI inner-loop pattern referenced in the methodology is from Microsoft's [HVE Core](https://github.com/microsoft/hve-core) (also MIT). Credit Microsoft when referencing RPI.
+- The 100-movie dataset is IMDb-derived public-domain test data, used in the original Helium load tests.
 
 ## Session Log
 

@@ -69,6 +69,8 @@ Three runs so far, each at a stricter condition than the last.
 
 **movies-bartr** — direct replication of the Helium MVP scope (same API, same Swagger, same 100-movie IMDb dataset, read-only, no auth). Stack substitutions only: Go instead of C#, k3s instead of App Services, Prometheus/Grafana instead of Azure Monitor, local JSON instead of Cosmos DB. 10 sessions, 9 tags, p95 50–500× under spec, all acceptance criteria green on a freshly-wiped cluster. Honest [retro](experiments/movies-bartr/RETRO.md) included.
 
+This run is also **participant 1 of a reusable experiment harness** at [github.com/bartr/movies](https://github.com/bartr/movies). The spec is stack-agnostic (Go/Rust/Python/TS/.NET runs are all expected to land at the bar), the ground rules are codified in `EXPERIMENT.md`, and the submissions tracker is open. The methodology becomes falsifiable across operators when N > 1.
+
 ### On the Ratios
 
 The interesting finding is not the size of either number. It is the **direction of change** when a confound was removed.
@@ -91,6 +93,10 @@ The cLLM experiment was accidental. The next ones will not be.
 ## Status
 
 Early but accelerating. Three experiments. One operator on two of them; a different operator on the third (in flight). The methodology is sound and survived its first stricter condition. It needs more data points — different engineers, different domains, different experience levels. That is what the `experiments/` folder is for.
+
+## License & Ownership
+
+This repo, the methodology, and the experiments are bartr's personal work, **MIT licensed**. Not Microsoft IP. The RPI inner-loop pattern referenced in the methodology is from Microsoft's [HVE Core](https://github.com/microsoft/hve-core) (also MIT) — credit Microsoft when referencing RPI.
 
 If you are running AI-native engineering and want to contribute an experiment, see [contributing.md](contributing.md).
 
