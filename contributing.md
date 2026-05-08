@@ -52,7 +52,7 @@ That is an open question, not a closed door. If you are working in that context 
 
 ## A Note on Experience Level
 
-The cLLM experiment was run by a Partner FDE with five years of compounding K8s experience and a year of reusable infrastructure. The 130× multiplier reflects that context.
+The cLLM experiment was run by a senior FDE with five years of compounding K8s experience and a year of reusable infrastructure. The 130× multiplier reflects that context.
 
 We need experiments from engineers at every level. The methodology should work — at different multipliers — across the experience spectrum. We will not know until we have the data.
 

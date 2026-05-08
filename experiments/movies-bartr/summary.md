@@ -24,7 +24,7 @@ Implementation notes: [IMPL-README.md](IMPL-README.md) · Performance: [PERFORMA
 
 ## Engineer Profile
 
-- **Level:** Partner FDE (Microsoft) — same operator as cLLM
+- **Level:** Forward Deployed Engineer (Microsoft) — same operator as cLLM
 - **Domain experience:** authored the original Helium MVP scope; deep K8s/observability background
 - **Reuse base:** **none.** Greenfield repo. No code or scaffolding carried forward from cLLM or Helium.
 
@@ -74,7 +74,7 @@ From the participant's [RETRO.md](RETRO.md):
 | Axis | Helium MVP (2020) | movies-bartr (2026) |
 |---|---|---|
 | Time to MVP | 26 weeks | **~5 focus hours** (~12 hours wall-clock) |
-| Team | 2 Principal FDE + 1 Senior FDE + 1 Principal PM | 1 Partner FDE |
+| Team | 2 Principal FDE + 1 Senior FDE + 1 Principal PM | 1 FDE |
 | **People-hours** | **~4,160** | **~5** |
 | Reuse base | n/a (was the new project) | none — greenfield |
 | Methodology | none | sessions, intentional from session 1 |

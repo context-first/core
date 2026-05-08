@@ -11,7 +11,7 @@ Local clone (gitignored): `repos/cllm/`
 
 ## Engineer Profile
 
-- **Level**: Partner FDE (Microsoft)
+- **Level**: Forward Deployed Engineer (Microsoft)
 - **Domain experience**: 5 years compounding K8s / Prometheus / Grafana / GitOps; first time on vLLM and GPUs-on-K8s
 - **Reuse base**: ~1 year of K8s-on-the-edge + GitOps work from a Domino's project carried forward as the starting stack
 
@@ -22,7 +22,7 @@ Comparable engineering bar to Helium (2020) — a 26-week, 4-person Kubernetes p
 | Axis | Helium (2020) | cLLM (2026) |
 |---|---|---|
 | Time to MVP | 26 weeks | 4 days |
-| Team | 2 Principal FDE + 1 Senior FDE + 1 Principal PM | 1 Partner FDE |
+| Team | 2 Principal FDE + 1 Senior FDE + 1 Principal PM | 1 FDE |
 | **People-weeks** | **~104** | **~0.8** |
 | Tooling | Hand-written, docs, Stack Overflow | GitHub Copilot + AI-native workflow |
 

@@ -59,7 +59,7 @@ Three runs so far, each at a stricter condition than the last.
 | | Helium MVP (2020) | [cLLM](experiments/cllm/summary.md) (2026) | [movies-bartr](experiments/movies-bartr/summary.md) (2026) |
 |---|---|---|---|
 | Time to MVP | 26 weeks | 4 days | **~5 focus hours** |
-| Team | 4 (3 FDE + 1 PM) | 1 Partner FDE | 1 Partner FDE |
+| Team | 4 (3 FDE + 1 PM) | 1 FDE | 1 FDE |
 | Reuse base | n/a (the new project) | ~1 yr K8s/GitOps from prior project | **none — greenfield** |
 | Methodology | none | sessions (accidental) | sessions (intentional) |
 | Effort | ~4,160 person-hours | ~0.8 person-weeks | **~5 person-hours** |
