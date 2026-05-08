@@ -40,7 +40,7 @@ repos/                          gitignored working area (see below)
 
 | # | Folder | What it proves | Status |
 |---|---|---|---|
-| 001 | `experiments/cllm/` | Accidental discovery of the methodology. Partner FDE, ~130× vs Helium baseline, 125 commits / 12 days. Public: `github.com/bartr/vllm` (rename to `cllm` pending). | shipped |
+| 001 | `experiments/cllm/` | Accidental discovery of the methodology. Partner FDE, ~130× vs Helium baseline, 125 commits / 12 days. Public: `github.com/bartr/cllm`. | shipped |
 | 002 | `experiments/fit-check/` | Methodology evolves under stress — a chat-only dry-run produced the **fit check** beat (added between Plan and Implement). Branch `fit-test`. | shipped |
 | 003 | `experiments/movies-bartr/` | Intentional replication of Helium MVP scope. ~5 focus hours, ~830× ratio, p95 50–500× under spec, honest RETRO. Also serves as **participant 1** of a reusable harness. | shipped |
 
@@ -61,7 +61,7 @@ Known clones that may appear under `repos/`:
 
 | Path | Public URL | Role | IP |
 |---|---|---|---|
-| `repos/cllm/` | `github.com/bartr/vllm` | cLLM experiment source (Go, K3s/Flux, MCP server). Was `vllm`; rename pending. | bartr, MIT |
+| `repos/cllm/` | `github.com/bartr/cllm` | cLLM experiment source (Go, K3s/Flux, MCP server). | bartr, MIT |
 | `repos/hve-core/` | `github.com/microsoft/hve-core` | Reference: HVE Core agents/instructions/skills + RPI. | **Microsoft, MIT** |
 | `repos/movies-template/` | `github.com/bartr/movies` | The Movies experiment harness / template. Other FDEs `Use this template`. May also appear at `~/movies/`. | bartr, MIT |
 | `repos/movies-bartr/` | `github.com/bartr/movies-bartr` | Participant 1's run through the harness. May also appear at `~/bartr-movies/`. | bartr, MIT |
@@ -74,7 +74,7 @@ those are populated by the participant. Edits to the harness go to
 ## IP / licensing
 
 - All bartr-owned IP is **MIT, personally owned by bartr** (NOT Microsoft):
-  this repo, `bartr/vllm`, `bartr/movies`, `bartr/movies-bartr`.
+  this repo, `bartr/cllm`, `bartr/movies`, `bartr/movies-bartr`.
 - **HVE Core (incl. RPI) is Microsoft, MIT.** Always credit Microsoft when
   referencing RPI or HVE Core. Safe to use, link, compose with — not safe
   to claim as bartr's.

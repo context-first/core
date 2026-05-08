@@ -6,7 +6,7 @@
 
 **cLLM** — a synthetic GPU / vLLM simulator with a Chat Completions–compatible proxy, benchmark client, MCP server, and full 3-layer observability (Grafana / Prometheus), GitOps-deployed on K3s / Flux.
 
-Repo: [github.com/bartr/vllm](https://github.com/bartr/vllm) *(repo rename to `cllm` pending)*
+Repo: [github.com/bartr/cllm](https://github.com/bartr/cllm)
 Local clone (gitignored): `repos/cllm/`
 
 ## Engineer Profile

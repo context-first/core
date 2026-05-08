@@ -5,6 +5,6 @@ A synthetic GPU / vLLM simulator built in 4 days by one FDE using GitHub Copilot
 - **Engineer**: Forward Deployed Engineer, Microsoft
 - **Project type**: Greenfield (with reused K8s/GitOps infrastructure)
 - **Outcome**: ~130× less effort vs. comparable 2020 baseline
-- **Repo**: [github.com/bartr/vllm](https://github.com/bartr/vllm)
+- **Repo**: [github.com/bartr/cllm](https://github.com/bartr/cllm)
 
 See [summary.md](summary.md) for full evidence and [session-log.md](session-log.md) for the session-by-session arc.

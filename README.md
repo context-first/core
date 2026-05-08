@@ -65,7 +65,7 @@ Three runs so far, each at a stricter condition than the last.
 | Effort | ~4,160 person-hours | ~0.8 person-weeks | **~5 person-hours** |
 | Headline ratio | — | ~130× | **~830×** |
 
-**cLLM** — synthetic GPU / vLLM simulator. 125 commits in 12 days, ~19.5K lines of Go (~40% test ratio, race-clean), 3-layer observability day one, GitOps on K3s/Flux. Public: [github.com/bartr/vllm](https://github.com/bartr/vllm). The session model emerged here by accident.
+**cLLM** — synthetic GPU / vLLM simulator. 125 commits in 12 days, ~19.5K lines of Go (~40% test ratio, race-clean), 3-layer observability day one, GitOps on K3s/Flux. Public: [github.com/bartr/cllm](https://github.com/bartr/cllm). The session model emerged here by accident.
 
 **movies-bartr** — direct replication of the Helium MVP scope (same API, same Swagger, same 100-movie IMDb dataset, read-only, no auth). Stack substitutions only: Go instead of C#, k3s instead of App Services, Prometheus/Grafana instead of Azure Monitor, local JSON instead of Cosmos DB. 10 sessions, 9 tags, p95 50–500× under spec, all acceptance criteria green on a freshly-wiped cluster. Honest [retro](experiments/movies-bartr/RETRO.md) included.
 
