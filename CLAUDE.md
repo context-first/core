@@ -20,6 +20,7 @@
 
 ```
 README.md                       methodology overview
+CLAUDE.md                       repo memory for AI assistants (this file)
 contributing.md                 how to submit experiments
 index.html                      public landing page (context-first.ai)
 methodology/
