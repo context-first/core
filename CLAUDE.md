@@ -45,8 +45,14 @@ repos/                          gitignored working area (see below)
 | 002 | `experiments/fit-check/` | Methodology evolves under stress — a chat-only dry-run produced the **fit check** beat (added between Plan and Implement). Branch `fit-test`. | shipped |
 | 003 | `experiments/movies-bartr/` | Intentional replication of Helium MVP scope. ~5 focus hours, ~830× ratio, p95 50–500× under spec, honest RETRO. Also serves as **participant 1** of a reusable harness. | shipped |
 
-A fourth experiment (different operator running the same movies spec) is
-in flight. Tests the seniority confound that the first three don't strip.
+A fourth experiment (Matt, SE II at context-first.ai) is in flight on the
+same movies spec. v1 shipped (~7–8 sessions, ~9 focus hours) but is held
+internal pending a post-v1 learning-loop session. Tests both the seniority
+confound and the learning / EF / culture blind spots that solo-senior runs
+couldn't surface. Working notes:
+[methodology/drafts/sessions-and-skill-compounding.md](methodology/drafts/sessions-and-skill-compounding.md)
+and [methodology/drafts/team-culture-as-sessions.md](methodology/drafts/team-culture-as-sessions.md).
+No public artifacts naming Matt until he agrees on the framing.
 
 ## `repos/` — gitignored sibling clones
 
