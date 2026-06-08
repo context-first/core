@@ -28,7 +28,14 @@ methodology/
   ceremonies-as-sessions.md     standups/retros/planning as sessions
   sessions-and-rpi.md           how sessions compose with RPI
   drafts/
-    ai-native-for-business.md   PM/stakeholder angle (draft)
+    ai-native-for-business.md         PM/stakeholder angle (draft)
+    sessions-and-skill-compounding.md the honest retrospective + scaling problem
+    team-culture-as-sessions.md       multi-person session gap
+    opinion-library-design.md         design sketch for compressing coaching
+    opinion-seeds.md                  pre-card extraction of opinions from working sessions
+learning-library/                 outputs of the methodology applied to cloud-native
+  skills-inventory.md             13-domain inventory (A-M)
+  study-guide-*.md                13 study guides: 11 full, 1 reduced (K), 1 reading-list (L)
 experiments/
   session-log-template.md       template for new experiments
   cllm/                         Experiment 001 — accidental, with reuse
@@ -36,6 +43,24 @@ experiments/
   movies-bartr/                 Experiment 003 — intentional, no reuse
 repos/                          gitignored working area (see below)
 ```
+
+## `methodology/` vs `learning-library/` — the distinction
+
+The two directories look similar and mean different things:
+
+- **`methodology/`** (and `methodology/drafts/`) holds documents
+  *about how the work is done* — the session primitive, RPI
+  composition, ceremonies, the honest retro, the opinion-library
+  design.
+- **`learning-library/`** holds *outputs of the methodology
+  applied to a domain* — currently the cloud-native skills
+  inventory + 13 study guides. As other domains accrete (Go,
+  Python, MLE, business-user) they live here too.
+
+Before adding any new artifact, ask: about-how-the-work-is-done
+(methodology) or what-the-work-produces (learning-library)?
+Mixing them muddies what each directory means.
+
 
 ## The three experiments (current state)
 
@@ -45,8 +70,14 @@ repos/                          gitignored working area (see below)
 | 002 | `experiments/fit-check/` | Methodology evolves under stress — a chat-only dry-run produced the **fit check** beat (added between Plan and Implement). Branch `fit-test`. | shipped |
 | 003 | `experiments/movies-bartr/` | Intentional replication of Helium MVP scope. ~5 focus hours, ~830× ratio, p95 50–500× under spec, honest RETRO. Also serves as **participant 1** of a reusable harness. | shipped |
 
-A fourth experiment (different operator running the same movies spec) is
-in flight. Tests the seniority confound that the first three don't strip.
+A fourth experiment (Matt, SE II at context-first.ai) is in flight on the
+same movies spec. v1 shipped (~7–8 sessions, ~9 focus hours) but is held
+internal pending a post-v1 learning-loop session. Tests both the seniority
+confound and the learning / EF / culture blind spots that solo-senior runs
+couldn't surface. Working notes:
+[methodology/drafts/sessions-and-skill-compounding.md](methodology/drafts/sessions-and-skill-compounding.md)
+and [methodology/drafts/team-culture-as-sessions.md](methodology/drafts/team-culture-as-sessions.md).
+No public artifacts naming Matt until he agrees on the framing.
 
 ## `repos/` — gitignored sibling clones
 
@@ -164,3 +195,10 @@ deployment shape (§4, §8), performance bar (§10.4), acceptance checklist
 - Don't propose unifying versions/tags across repos.
 - Don't `--squash` merges anywhere.
 - Don't claim RPI or HVE Core as bartr IP. Microsoft, MIT.
+- Don't mix `methodology/` content with `learning-library/` content.
+  About-the-work vs output-of-the-work; the directories make the
+  distinction structural so readers don't have to re-derive it.
+- Don't frame automation around a review queue as a substitute for
+  review discipline. The discipline IS the system; the automation is
+  leverage. See `methodology/drafts/opinion-seeds.md` L-006.
+
