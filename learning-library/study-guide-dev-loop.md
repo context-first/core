@@ -24,7 +24,7 @@ pieces, in other guides:
 - **H5** `git` beyond basics — methodology references FF-merge
   but no module teaches it.
 - **H6** commit granularity — named gap in
-  [sessions-and-skill-compounding.md](sessions-and-skill-compounding.md),
+  [sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md),
   not taught anywhere.
 - **H7** dev containers — full module in local-platform M5.
   **No gap.** Not re-explained here.
@@ -44,8 +44,8 @@ That's what this guide is.
   verify → validate → inspect.
 - movies-bartr's `Makefile`, `VERSION`, session-log, and
   per-session commit history as the worked example.
-- [sessions-and-rpi.md](sessions-and-rpi.md) and
-  [sessions-and-skill-compounding.md](sessions-and-skill-compounding.md)
+- [sessions-and-rpi.md](../methodology/sessions-and-rpi.md) and
+  [sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md)
   for the methodology framing the close ritual.
 
 ## How to use this guide

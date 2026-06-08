@@ -1,14 +1,14 @@
 # Study Guide — Observability (movies-spec §7)
 
 > **DRAFT — NOT FOR PUBLICATION.** Companion to
-> [sessions-and-skill-compounding.md](sessions-and-skill-compounding.md).
+> [sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md).
 > Held internal until at least one run uses it end-to-end and we have
 > evidence on whether it closes the learning gap without breaking the
 > artifact bar.
 
 ## Why this exists
 
-[sessions-and-skill-compounding.md](sessions-and-skill-compounding.md)
+[sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md)
 names a structural gap: in 2020, the operator had to learn the platform
 to ship; in 2026, the agent will do the learning for them. Matt-v1
 shipped movies 1.0.0 in ~9 focus hours and **did not know that Grafana
@@ -494,7 +494,7 @@ falsifiable, reviewable artifact — the same move sessions made for
 ## Status
 
 - Not yet run end-to-end with any operator.
-- Not yet validated against the [sessions-and-skill-compounding](sessions-and-skill-compounding.md)
+- Not yet validated against the [sessions-and-skill-compounding](../methodology/drafts/sessions-and-skill-compounding.md)
   hypothesis.
 - Unlocks for promotion to `methodology/` once at least one full run
   (Matt-v2 or equivalent) has used it and reported honestly on

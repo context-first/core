@@ -7,7 +7,7 @@
 > we are *not* writing a Kubernetes textbook; we are filling in the
 > skills the agent would otherwise silently substitute for the
 > operator (see
-> [sessions-and-skill-compounding.md](sessions-and-skill-compounding.md)).
+> [sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md)).
 
 ## Level convention
 
@@ -143,7 +143,7 @@ Targets summarized:
 | H3 | Versioning discipline — semver, what bumps what, where the version lives in the repo | 200 | 300 | Covered in [study-guide-containers.md](study-guide-containers.md) Module 6 (VERSION → ldflags → `/version` chain). Not re-explained in H guide. |
 | H4 | **Shell fluency** — `jq`, `yq`, `xargs`, `awk` — the four tools that cover ~95% of curriculum shell work | 200 | 300 | The cost of not knowing `jq` is paid every session. See [study-guide-dev-loop.md](study-guide-dev-loop.md) Module 3. |
 | H5 | **`git` for the methodology** — rebase vs merge, FF-merge close ritual, tagging, `--no-pager`, `bisect`, `reflog`, never `--squash` | 200 | 300 | Methodology assumes FF-merge close ritual. See [study-guide-dev-loop.md](study-guide-dev-loop.md) Module 4. |
-| H6 | **Commit granularity** — one reason / independently revertable / independently understandable; 8–20 commits per session | 200 | 300 | Named gap from Matt-v1 review. See [study-guide-dev-loop.md](study-guide-dev-loop.md) Module 5 and [sessions-and-skill-compounding.md](sessions-and-skill-compounding.md). |
+| H6 | **Commit granularity** — one reason / independently revertable / independently understandable; 8–20 commits per session | 200 | 300 | Named gap from Matt-v1 review. See [study-guide-dev-loop.md](study-guide-dev-loop.md) Module 5 and [sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md). |
 | H7 | Devcontainers — when worth the cost, when not | 100 | 200 | Covered in [study-guide-local-platform.md](study-guide-local-platform.md) Module 5. Not re-explained in H guide. |
 
 ### I. Testing and benchmarks
@@ -199,11 +199,11 @@ Targets summarized:
 
 | # | Skill | Spec bar | Enterprise bar | Notes / opinion |
 |---|---|---|---|---|
-| L1 | Sessions + RPI cycle | 200 | 300 | The unit of work. Canonical text: [`sessions-not-stories.md`](../sessions-not-stories.md) + [`sessions-and-rpi.md`](../sessions-and-rpi.md). Index: [study-guide-methodology.md](study-guide-methodology.md). |
-| L2 | Frame → Plan → Fit-check → Implement → Review → Close | 200 | 300 | Canonical text: [`sessions-and-rpi.md`](../sessions-and-rpi.md) "How One Session Maps to One RPI Cycle". |
-| L3 | RETRO honesty — name what didn't work, not just what shipped | 200 | 300 | Worked example: [`sessions-and-skill-compounding.md`](sessions-and-skill-compounding.md) is RETRO honesty applied to the methodology itself. |
-| L4 | **Asking the agent for coaching** — "How could I have done this better?" / "What did I miss?" | 200 | 300 | Named gap from Matt-v1. Free, available, underused. See [`sessions-and-skill-compounding.md`](sessions-and-skill-compounding.md). |
-| L5 | Per-release human + Claude review (this study-guide series) | 200 | 300 | The proposed remediation in [`sessions-and-skill-compounding.md`](sessions-and-skill-compounding.md); operationalized across the 12 study guides via the per-release review template in [study-guide-observability.md](study-guide-observability.md). |
+| L1 | Sessions + RPI cycle | 200 | 300 | The unit of work. Canonical text: [`sessions-not-stories.md`](../methodology/sessions-not-stories.md) + [`sessions-and-rpi.md`](../methodology/sessions-and-rpi.md). Index: [study-guide-methodology.md](study-guide-methodology.md). |
+| L2 | Frame → Plan → Fit-check → Implement → Review → Close | 200 | 300 | Canonical text: [`sessions-and-rpi.md`](../methodology/sessions-and-rpi.md) "How One Session Maps to One RPI Cycle". |
+| L3 | RETRO honesty — name what didn't work, not just what shipped | 200 | 300 | Worked example: [`sessions-and-skill-compounding.md`](../methodology/drafts/sessions-and-skill-compounding.md) is RETRO honesty applied to the methodology itself. |
+| L4 | **Asking the agent for coaching** — "How could I have done this better?" / "What did I miss?" | 200 | 300 | Named gap from Matt-v1. Free, available, underused. See [`sessions-and-skill-compounding.md`](../methodology/drafts/sessions-and-skill-compounding.md). |
+| L5 | Per-release human + Claude review (this study-guide series) | 200 | 300 | The proposed remediation in [`sessions-and-skill-compounding.md`](../methodology/drafts/sessions-and-skill-compounding.md); operationalized across the 12 study guides via the per-release review template in [study-guide-observability.md](study-guide-observability.md). |
 
 ### M. Language — Go (canonical)
 

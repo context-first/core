@@ -1183,7 +1183,7 @@ build time."*
 
 - Not yet run end-to-end with any operator.
 - Not yet validated against the
-  [sessions-and-skill-compounding](sessions-and-skill-compounding.md)
+  [sessions-and-skill-compounding](../methodology/drafts/sessions-and-skill-compounding.md)
   hypothesis.
 - Unlocks for promotion to `methodology/` once at least one full
   run has used it and reported honestly on whether it closed the

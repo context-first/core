@@ -19,7 +19,7 @@ maps onto the movies-spec requirements and the
 [skills-inventory.md](skills-inventory.md) rows M1–M17.
 
 The Matt-v1 gap (see
-[sessions-and-skill-compounding.md](sessions-and-skill-compounding.md))
+[sessions-and-skill-compounding.md](../methodology/drafts/sessions-and-skill-compounding.md))
 applies here too: the agent will write `signal.NotifyContext` +
 `http.Server.Shutdown` correctly the first time. The operator who
 can't read it can't tell when the agent's next refactor breaks
