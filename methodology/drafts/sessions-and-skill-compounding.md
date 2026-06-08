@@ -114,6 +114,56 @@ delivery cycle produced as a side effect.
 That is publishable as an observation. The remediation is not yet
 publishable, because no run has tested it.
 
+## The scaling problem (what Matt-v2 cannot solve)
+
+The four named gaps all have the same proposed shape of remediation:
+**more senior attention per session.** Per-release review with bartr.
+Per-release learning retro. Coaching prompts. Deliberate platform
+exposure where the agent would otherwise absorb the step. Each of
+these is high-leverage. None of them scale.
+
+The honest framing, going into the skills-inventory and study-guide
+work: **you cannot have a Partner-level engineer spend ~78 focused
+minutes per spec on coaching.** The curriculum was an attempt to
+compress that coaching into a reusable artifact — write the 13
+study guides once, let the next operator self-coach against them.
+That compression is the point. It is also the bet that has not
+been tested.
+
+The Helium-Anne north star deserves naming as the cost it actually
+was: **six months on a four-person team, under daily senior review,
+with real production pressure.** The skill compounding that produced
+"Anne the observability engineer" did not come from talent or tooling.
+It came from sustained senior attention at high cadence in a
+real-stakes environment. That is expensive. It has always been
+expensive. AI-native does not change the cost of that input; it only
+changes what the operator can produce *given* that input.
+
+What Matt-v2 can show:
+
+- Whether per-release review + coaching prompts + deliberate platform
+  exposure close a measurable portion of the v1 learning gap.
+- Whether the artifact bar holds (or what trade-off appears).
+- A first data point on whether self-coaching against the study
+  guides is feasible at all, separate from live coaching.
+
+What Matt-v2 cannot show:
+
+- **Helium-equivalent skill compounding.** Six months of senior
+  review at daily cadence is not in scope and cannot be
+  short-circuited by a second session.
+- **Whether the curriculum scales the coaching.** That requires a
+  third participant who self-coaches against the study guides with
+  no live senior attention — a different experiment.
+- **Whether the compression is honest.** A 12-module study guide
+  cannot replicate "the senior engineer who was in the code review
+  with you when you shipped the dashboard that didn't work." The
+  question is how much of the compounding it *can* carry, not
+  whether it carries all of it.
+
+The north star is named so the remediation is not over-claimed.
+Matt-v2 is one experiment, not the answer to the scaling problem.
+
 ## The hypothesis under test (Matt-v2)
 
 The proposed remediation is **not yet methodology**. It is the
@@ -166,6 +216,39 @@ surviving sessions, not by being designed.
 - Where does this live in the methodology layout? An addition to
   [sessions-not-stories.md](../sessions-not-stories.md), or a new
   doc on "session-as-development-loop, not just delivery-loop"?
+- **Could the agent reimplement the curriculum from the artifacts?**
+  If Claude were handed the existing spec, skills inventory, and 13
+  study guides, then asked to author a new domain's spec and matching
+  curriculum at the same quality bar — how close to the existing
+  bar could it get? Honest first-pass estimate from the author of
+  this curriculum, who watched it get built:
+  - **Structure / format: high.** The 12-module template, the
+    reduced form, the reading-list form, the per-release residual
+    pattern, the cross-link discipline — all patternable from the
+    existing artifacts. The output would look like the curriculum.
+  - **Load-bearing opinions: low to moderate.** "Every Ingress
+    declares exactly one entrypoint." "TSV is structured — here is
+    the Excel pivot trick." "The dashboard signature IS the SLO."
+    "Don't fight the distro." These came out of coach pushback
+    during authoring, not from the source material. A reimplementation
+    would produce *some* opinion in each module — most of it
+    correct, less of it load-bearing.
+  - **Form decisions: low.** The choice to write K as reduced form
+    and L as reading-list — not 12 modules each — was a judgment
+    call about where the form fits the domain. A second run would
+    likely default to the full template for every domain unless the
+    coach intervened.
+  - **Honest gap-naming: low.** "Named gap: webv has no `--json`
+    mode and no `/metrics` endpoint" requires willingness to flag
+    absences as features of the curriculum, not bugs in the source.
+    That posture is coachable but not the default.
+
+  Net: the artifact would *look* like the curriculum. It would not
+  *cut* the same way. This is the same finding as Matt-v1: the agent
+  produces the artifact; the load-bearing judgments come from the
+  coach. Worth testing directly — hand Claude this repo and a fresh
+  spec, compare to a coached re-author of the same spec, score
+  honestly.
 
 ## Status of v1 facts (held internal)
 
